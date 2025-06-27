@@ -1,10 +1,10 @@
-Microsoft Visual Studio Solution File, Format Version 12.00
+﻿Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.12.35514.174
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NewProjectTemplate", "NewProjectTemplate\NewProjectTemplate\NewProjectTemplate.csproj", "{2215DDA4-3943-4949-A701-1BF3EB6749AB}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebComponentsBlazorDemo", "WebComponentsBlazorDemo\WebComponentsBlazorDemo\WebComponentsBlazorDemo.csproj", "{2215DDA4-3943-4949-A701-1BF3EB6749AB}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NewProjectTemplate.Client", "NewProjectTemplate\NewProjectTemplate.Client\NewProjectTemplate.Client.csproj", "{59C54673-C9EC-4A08-B303-60798D96DF33}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebComponentsBlazorDemo.Client", "WebComponentsBlazorDemo\WebComponentsBlazorDemo.Client\WebComponentsBlazorDemo.Client.csproj", "{59C54673-C9EC-4A08-B303-60798D96DF33}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

@@ -1,3 +1,3 @@
-https://developer.mozilla.org/en-US/docs/Web/API/Web_components
-https://tradingview.github.io/lightweight-charts/tutorials/webcomponents/custom-element
-https://kinsta.com/blog/web-components/
+- https://developer.mozilla.org/en-US/docs/Web/API/Web_components
+- https://tradingview.github.io/lightweight-charts/tutorials/webcomponents/custom-element
+- https://kinsta.com/blog/web-components/

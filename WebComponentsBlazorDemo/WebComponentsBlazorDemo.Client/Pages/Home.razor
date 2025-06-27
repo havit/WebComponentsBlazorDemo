@@ -1,9 +1,27 @@
 ﻿@page "/"
+@using WebComponentsBlazorDemo.Client.Components
+@inject IJSRuntime JSRuntime
 
-<PageTitle>Home</PageTitle>
+<PageTitle>Custom WebComponent demo</PageTitle>
 
-<h1>Hello, world!</h1>
+<h1>Custom WebComponent demo</h1>
 
-<p>Welcome to your new app.</p>
+<MyCustomComponentWrapper ButtonText="@_buttonText" OnSomeEvent="HandleSomeEvent" />
 
-<HxIcon Icon="@BootstrapIcon.HandThumbsUp" CssClass="display-3" />
+<HxButton Color="ThemeColor.Primary" OnClick="HandleSetNewButtonTextClick" Text="Set new button text (from Blazor to WebComponent)" CssClass="mt-5" />
+<p>@_responseFromWebComponent</p>
+
+@code {
+	private string _buttonText = "Original button text from Blazor";
+	private string _responseFromWebComponent;
+
+	private void HandleSetNewButtonTextClick()
+	{
+		_buttonText = "New button text from Blazor " + DateTime.Now.Ticks;
+	}
+
+	private void HandleSomeEvent(string response)
+	{
+		_responseFromWebComponent = response;
+	}
+}

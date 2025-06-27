@@ -1,0 +1,41 @@
+﻿@implements IAsyncDisposable
+@inject IJSRuntime JSRuntime
+
+<my-custom-component @ref="_myCustomComponentReference" buttonText="@ButtonText" />
+
+@code {
+	private ElementReference _myCustomComponentReference;
+	private IJSObjectReference _myCustomComponentJsModule;
+
+	[Parameter] public string ButtonText { get; set; } = "Default button text from Blazor";
+
+	[Parameter] public EventCallback<string> OnSomeEvent { get; set; }
+
+	protected override async Task OnAfterRenderAsync(bool firstRender)
+	{
+		if (firstRender)
+		{
+			_myCustomComponentJsModule = await JSRuntime.ImportModuleAsync(Assets["./MyCustomComponentWrapper.js"]);
+			await _myCustomComponentJsModule.InvokeVoidAsync("initialize", _myCustomComponentReference, DotNetObjectReference.Create(this));
+		}
+	}
+
+	[JSInvokable]
+	public async Task HandleSomeEvent(string response)
+	{
+		if (OnSomeEvent.HasDelegate)
+		{
+			await OnSomeEvent.InvokeAsync(response);
+		}
+	}
+
+	public async ValueTask DisposeAsync()
+	{
+		if (_myCustomComponentJsModule != null)
+		{
+			await _myCustomComponentJsModule.InvokeVoidAsync("dispose", _myCustomComponentReference);
+			await _myCustomComponentJsModule.DisposeAsync();
+			_myCustomComponentJsModule = null;
+		}
+	}
+}

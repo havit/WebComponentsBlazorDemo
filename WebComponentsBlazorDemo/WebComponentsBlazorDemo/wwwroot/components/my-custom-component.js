@@ -105,7 +105,12 @@ class MyCustomComponent extends HTMLElement {
 		// Cleanup if necessary
 		console.log("MyCustomComponent disconnected");
 	}
+
+	test() {
+		console.log("MyCustomComponent test function called");
+	}
 }
+
 
 // Define the new element
 customElements.define("my-custom-component", MyCustomComponent);
